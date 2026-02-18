@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "id": "heartfactory:golden_heart"
+    },
+    "title": {
+      "translate": "advancements.heartfactory.root.title"
+    },
+    "description": {
+      "translate": "advancements.heartfactory.root.desc"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

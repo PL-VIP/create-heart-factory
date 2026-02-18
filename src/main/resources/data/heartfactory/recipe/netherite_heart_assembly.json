@@ -1,0 +1,64 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "heartfactory:enchanted_golden_heart"
+  },
+  "transitional_item": {
+    "id": "heartfactory:incomplete_heart"
+  },
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "heartfactory:incomplete_heart"
+        },
+        {
+          "type": "neoforge:single",
+          "amount": 432,
+          "fluid": "heartfactory:molten_netherite"
+        }
+      ],
+      "results": [
+        {
+          "id": "heartfactory:incomplete_heart"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "heartfactory:incomplete_heart"
+        },
+        {
+          "item": "minecraft:nether_star"
+        }
+      ],
+      "results": [
+        {
+          "id": "heartfactory:incomplete_heart"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "heartfactory:incomplete_heart"
+        }
+      ],
+      "results": [
+        {
+          "id": "heartfactory:incomplete_heart"
+        }
+      ]
+    }
+  ],
+  "loops": 1,
+  "results": [
+    {
+      "id": "heartfactory:netherite_heart"
+    }
+  ]
+}

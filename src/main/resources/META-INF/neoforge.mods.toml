@@ -1,0 +1,55 @@
+# Sekcja globalna (ustawienia loadera)
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MPL-2.0"
+# Opcjonalnie link do zgłaszania błędów dla całego pliku (rzadziej używane)
+# issueTrackerURL="https://github.com/TwojNick/HeartFactory/issues"
+
+# --- SEKCJA MODA (Tu wpisujemy konkrety) ---
+[[mods]]
+modId="heartfactory"
+version="${mod_version}"
+displayName="Create: Heart Factory"
+
+# Ikonka (musi być w src/main/resources/logo.png)
+logoFile="logo.png"
+
+# Autorzy
+authors="PL_VIP"
+
+# --- LINKI (Muszą być TUTAJ, wewnątrz [[mods]]) ---
+# To jest przycisk "Homepage" w grze
+displayURL="https://modrinth.com/mod/create-heart-factory"
+
+# To jest przycisk "Issues" (opcjonalne)
+# issueTrackerURL="https://github.com/TwojNick/HeartFactory/issues"
+
+# Opis
+description='''
+Industrialize your vitality!
+An addon for Create that allows you to extract absorption hearts from players using a Deployer.
+Process them via assembly lines involving painting (with a risk of failure!), melting into potions, or forging into permanent health upgrades using Molten Netherite.
+'''
+
+# --- ZALEŻNOŚCI ---
+
+[[dependencies.heartfactory]]
+modId="neoforge"
+mandatory=true
+versionRange="[21.1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.heartfactory]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.21.1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.heartfactory]]
+modId="create"
+mandatory=true
+versionRange="[0.6,)"
+ordering="NONE"
+side="BOTH"

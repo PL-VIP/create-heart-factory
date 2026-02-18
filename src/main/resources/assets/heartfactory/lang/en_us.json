@@ -1,0 +1,42 @@
+{
+  "itemGroup.heartfactory": "Heart Factory",
+
+  "item.heartfactory.golden_heart": "Golden Heart",
+  "item.heartfactory.enchanted_golden_heart": "Enchanted Golden Heart",
+  "item.heartfactory.painted_golden_heart": "Painted Golden Heart",
+  "item.heartfactory.more_painted_golden_heart": "More Painted Golden Heart",
+  "item.heartfactory.incomplete_heart": "Incomplete Netherite Heart",
+  "item.heartfactory.broken_heart": "Broken Heart",
+  "item.heartfactory.heart": "Heart",
+  "item.heartfactory.netherite_heart": "Netherite Heart",
+
+  "fluid_type.heartfactory.molten_netherite_type": "Molten Netherite",
+
+  "item.heartfactory.golden_heart.desc_1": "Process: Painting (x100)",
+  "item.heartfactory.golden_heart.desc_2": "Use Create Assembly. 0.5% break chance!",
+  "item.heartfactory.broken_heart.desc": "Your hopes and dreams, shattered into pieces.",
+  "item.heartfactory.incomplete_heart.desc_1": "Intermediate stage of forging.",
+  "item.heartfactory.incomplete_heart.desc_2": "Contains unstable Netherite energy.",
+
+  "tooltip.heartfactory.heart_desc": "Eat to gain permanent health (Max 10).",
+  "tooltip.heartfactory.netherite_desc": "Grants health beyond the limit (Max 10).",
+
+  "message.heartfactory.max_hearts": "You cannot consume more Hearts.",
+  "message.heartfactory.max_netherite": "Your body cannot handle more Netherite Hearts.",
+  "message.heartfactory.installed": "Extractor installed!",
+  "message.heartfactory.already_present": "Module already installed!",
+  "message.heartfactory.removed": "Extractor removed.",
+
+  "advancements.heartfactory.root.title": "Heart Factory",
+  "advancements.heartfactory.root.desc": "Begin your journey to immortality.",
+  "advancements.heartfactory.stolen_heart.title": "Don't take my hearts!",
+  "advancements.heartfactory.stolen_heart.desc": "Have a heart extracted by a Deployer.",
+  "advancements.heartfactory.immortal.title": "I'm now Immortal",
+  "advancements.heartfactory.immortal.desc": "Reach 30 Hearts (60 HP).",
+  "advancements.heartfactory.heartbreak.title": "Heartbreak",
+  "advancements.heartfactory.heartbreak.desc": "Fail the assembly process. Painful.",
+  "item.minecraft.potion.effect.health_boost": "Potion of Health Boost",
+  "item.minecraft.splash_potion.effect.health_boost": "Splash Potion of Health Boost",
+  "item.minecraft.lingering_potion.effect.health_boost": "Lingering Potion of Health Boost",
+  "item.minecraft.tipped_arrow.effect.health_boost": "Arrow of Health Boost"
+}

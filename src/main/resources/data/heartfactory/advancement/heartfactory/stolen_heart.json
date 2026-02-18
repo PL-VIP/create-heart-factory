@@ -1,0 +1,22 @@
+{
+  "parent": "heartfactory:heartfactory/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:shears"
+    },
+    "title": {
+      "translate": "advancements.heartfactory.stolen_heart.title"
+    },
+    "description": {
+      "translate": "advancements.heartfactory.stolen_heart.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "get_stolen": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

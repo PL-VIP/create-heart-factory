@@ -1,0 +1,38 @@
+{
+  "itemGroup.heartfactory": "Fabryka Serc",
+
+  "item.heartfactory.golden_heart": "Złote Serce",
+  "item.heartfactory.enchanted_golden_heart": "Zaklęte Złote Serce",
+  "item.heartfactory.painted_golden_heart": "Pomalowane Złote Serce",
+  "item.heartfactory.more_painted_golden_heart": "Mocno Pomalowane Złote Serce",
+  "item.heartfactory.incomplete_heart": "Niekompletne Serce Netheritowe",
+  "item.heartfactory.broken_heart": "Złamane Serce",
+  "item.heartfactory.heart": "Serce",
+  "item.heartfactory.netherite_heart": "Netheritowe Serce",
+
+  "fluid_type.heartfactory.molten_netherite_type": "Stopiony Netherit",
+
+  "item.heartfactory.golden_heart.desc_1": "Proces: Malowanie (x100)",
+  "item.heartfactory.golden_heart.desc_2": "Użyj Asamblera Create. 0.5% szans na zniszczenie!",
+  "item.heartfactory.broken_heart.desc": "Twoje nadzieje i marzenia, rozbite na kawałki.",
+  "item.heartfactory.incomplete_heart.desc_1": "Pośredni etap wykuwania.",
+  "item.heartfactory.incomplete_heart.desc_2": "Zawiera niestabilną energię Netheritu.",
+
+  "tooltip.heartfactory.heart_desc": "Zjedz, aby zwiększyć zdrowie na stałe (Max 10).",
+  "tooltip.heartfactory.netherite_desc": "Dodaje zdrowie ponad limit (Max 10).",
+
+  "message.heartfactory.max_hearts": "Nie możesz zjeść więcej Serc.",
+  "message.heartfactory.max_netherite": "Twoje ciało nie zniesie więcej Netheritowych Serc.",
+  "message.heartfactory.installed": "Zainstalowano Ekstraktor!",
+  "message.heartfactory.already_present": "Moduł już zainstalowany!",
+  "message.heartfactory.removed": "Wyjęto Ekstraktor.",
+
+  "advancements.heartfactory.root.title": "Fabryka Serc",
+  "advancements.heartfactory.root.desc": "Rozpocznij drogę do nieśmiertelności.",
+  "advancements.heartfactory.stolen_heart.title": "Złodziej serc!",
+  "advancements.heartfactory.stolen_heart.desc": "Niech Deployer wyrwie ci serce.",
+  "advancements.heartfactory.immortal.title": "Jestem teraz nieśmiertelny",
+  "advancements.heartfactory.immortal.desc": "Osiągnij 30 Serc (60 HP).",
+  "advancements.heartfactory.heartbreak.title": "Złamane Serce",
+  "advancements.heartfactory.heartbreak.desc": "Ponieś porażkę w procesie montażu. Bolesne."
+}

@@ -1,0 +1,38 @@
+{
+  "itemGroup.heartfactory": "Fábrica de Corazones",
+
+  "item.heartfactory.golden_heart": "Corazón Dorado",
+  "item.heartfactory.enchanted_golden_heart": "Corazón Dorado Encantado",
+  "item.heartfactory.painted_golden_heart": "Corazón Dorado Pintado",
+  "item.heartfactory.more_painted_golden_heart": "Corazón Dorado Muy Pintado",
+  "item.heartfactory.incomplete_heart": "Corazón de Netherita Incompleto",
+  "item.heartfactory.broken_heart": "Corazón Roto",
+  "item.heartfactory.heart": "Corazón",
+  "item.heartfactory.netherite_heart": "Corazón de Netherita",
+
+  "fluid_type.heartfactory.molten_netherite_type": "Netherita Fundida",
+
+  "item.heartfactory.golden_heart.desc_1": "Proceso: Pintado (x100)",
+  "item.heartfactory.golden_heart.desc_2": "Usa Ensamblaje de Create. ¡0.5% de probabilidad de rotura!",
+  "item.heartfactory.broken_heart.desc": "Tus esperanzas y sueños, hechos pedazos.",
+  "item.heartfactory.incomplete_heart.desc_1": "Etapa intermedia de forjado.",
+  "item.heartfactory.incomplete_heart.desc_2": "Contiene energía inestable de Netherita.",
+
+  "tooltip.heartfactory.heart_desc": "Comer para ganar salud permanente (Máx 10).",
+  "tooltip.heartfactory.netherite_desc": "Otorga salud más allá del límite (Máx 10).",
+
+  "message.heartfactory.max_hearts": "No puedes consumir más Corazones.",
+  "message.heartfactory.max_netherite": "Tu cuerpo no aguanta más Corazones de Netherita.",
+  "message.heartfactory.installed": "¡Extractor instalado!",
+  "message.heartfactory.already_present": "¡Módulo ya instalado!",
+  "message.heartfactory.removed": "Extractor eliminado.",
+
+  "advancements.heartfactory.root.title": "Fábrica de Corazones",
+  "advancements.heartfactory.root.desc": "Comienza tu viaje hacia la inmortalidad.",
+  "advancements.heartfactory.stolen_heart.title": "¡No tomes mis corazones!",
+  "advancements.heartfactory.stolen_heart.desc": "Deja que un Deployer te extraiga un corazón.",
+  "advancements.heartfactory.immortal.title": "Ahora soy Inmortal",
+  "advancements.heartfactory.immortal.desc": "Alcanza 30 Corazones (60 HP).",
+  "advancements.heartfactory.heartbreak.title": "Corazón Roto",
+  "advancements.heartfactory.heartbreak.desc": "Falla en el proceso de ensamblaje. Doloroso."
+}

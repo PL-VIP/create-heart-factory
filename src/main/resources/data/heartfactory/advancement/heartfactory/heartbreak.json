@@ -1,0 +1,31 @@
+{
+  "parent": "heartfactory:heartfactory/root",
+  "display": {
+    "icon": {
+      "id": "heartfactory:broken_heart"
+    },
+    "title": {
+      "translate": "advancements.heartfactory.heartbreak.title"
+    },
+    "description": {
+      "translate": "advancements.heartfactory.heartbreak.desc"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "has_broken_heart": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "heartfactory:broken_heart"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

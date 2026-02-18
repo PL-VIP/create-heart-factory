@@ -1,0 +1,22 @@
+{
+  "parent": "heartfactory:heartfactory/stolen_heart",
+  "display": {
+    "icon": {
+      "id": "heartfactory:netherite_heart"
+    },
+    "title": {
+      "translate": "advancements.heartfactory.immortal.title"
+    },
+    "description": {
+      "translate": "advancements.heartfactory.immortal.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "get_immortal": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

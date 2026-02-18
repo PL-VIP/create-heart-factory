@@ -1,0 +1,33 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "heartfactory:more_painted_golden_heart"
+  },
+  "transitional_item": {
+    "id": "heartfactory:more_painted_golden_heart"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "heartfactory:more_painted_golden_heart"
+        },
+        {
+          "item": "minecraft:iron_ingot"
+        }
+      ],
+      "results": [
+        {
+          "id": "heartfactory:more_painted_golden_heart"
+        }
+      ]
+    }
+  ],
+  "loops": 5,
+  "results": [
+    {
+      "id": "heartfactory:heart"
+    }
+  ]
+}
