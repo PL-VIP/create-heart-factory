@@ -1,25 +1,25 @@
+**Create: Heart Factory** is an addon for the [Create Mod](https://modrinth.com/mod/create) that introduces a way to chenge your maximum health.
 
-Installation information
-=======
+## ⚙️ Features
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+###  Heart Extraction
+In this mod, **YOU are the source**.
+1. Eat a **Golden Apple** or **Enchanted Golden Apple** to gain Absorption.
+2. Stand in front of a **Deployer** (in Use Mode).
+3. Let the machine extract the absorption hearts from your body!
+   - **Golden Apple** → Yields a *Golden Heart*.
+   - **Enchanted Golden Apple** → Yields an *Enchanted Golden Heart*.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
-
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
-
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
-
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+###  The Factory Process
+Raw hearts aren't enough. You must process them using Create's assembly lines:
+*   **The Painting:** Process a Golden Heart with **100 applications of Red Dye**. 
+    *    **Warning:** There is a **5% chance** the heart will broke into a useless *Broken Heart*(what a breakup)
+*   **Reinforcement:** Press the painted heart with Iron Ingots to forge a **Heart**.
+![heart](https://cdn.modrinth.com/data/cached_images/c05cd49dc69f065796d7d1222d680aa9487e8db8.png)
+###  Molten Netherite & Endgame
+Take it a step further with **Molten Netherite**. 
+*   Melt Netherite Ingots in a Superheated Mixer.
+*   Use a **Spout** to coat your hearts.
+  ![spouting a heart with netherite](https://cdn.modrinth.com/data/cached_images/985413c878e8cb1081d8696ece4beb3e8631862e.png)
+*   Use a **nether star** to finish yours netherite heart.
+*   Craft the ultimate **Netherite Heart** to break past the standard(30hp)health limit!
