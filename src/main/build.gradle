@@ -82,9 +82,9 @@ tasks.withType(ProcessResources).configureEach {
             loader_version_range: "[4,)",
             mod_id              : project.mod_id,
             mod_name            : "Heart Factory",
-            mod_license         : "MIT",
+            mod_license         : "MPL 2.0",
             mod_version         : project.mod_version,
-            mod_authors         : "TwojaNazwa",
+            mod_authors         : "PL_VIP",
             mod_description     : "Create Addon"
     ]
     inputs.properties replaceProperties
@@ -105,4 +105,5 @@ publishing {
             url "file://${project.projectDir}/repo"
         }
     }
+
 }
