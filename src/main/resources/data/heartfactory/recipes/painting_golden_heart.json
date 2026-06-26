@@ -1,0 +1,38 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "heartfactory:golden_heart"
+  },
+  "transitionalItem": {
+    "item": "heartfactory:painted_golden_heart"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "heartfactory:painted_golden_heart"
+        },
+        {
+          "item": "minecraft:red_dye"
+        }
+      ],
+      "results": [
+        {
+          "item": "heartfactory:painted_golden_heart"
+        }
+      ]
+    }
+  ],
+  "loops": 100,
+  "results": [
+    {
+      "item": "heartfactory:more_painted_golden_heart",
+      "chance": 95.0
+    },
+    {
+      "item": "heartfactory:broken_heart",
+      "chance": 5.0
+    }
+  ]
+}

@@ -1,4 +1,25 @@
-**Create: Heart Factory** is an addon for the [Create Mod](https://modrinth.com/mod/create) that introduces a way to chenge your maximum health.
+# Create: Heart Factory
+
+Addon for [Create](https://modrinth.com/mod/create) that lets you extract absorption hearts and process them on assembly lines.
+
+## Branches
+
+| Branch | Minecraft | Loader | Create |
+|--------|-----------|--------|--------|
+| `main` | 1.21.1 | NeoForge | 6.0.x |
+| `mc1.20.1-forge` | 1.20.1 | Forge 47.1.33 | 6.0.8 |
+
+## Build (Forge 1.20.1)
+
+```bash
+git checkout mc1.20.1-forge
+./gradlew build
+```
+
+Output: `build/libs/heartfactory-2.0.0-forge.jar`
+
+Requires Java 17.
+
 
 ## ⚙️ Features
 

@@ -1,29 +1,36 @@
 package com.pl_vip.heartfactory;
 
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
-@EventBusSubscriber(modid = HeartFactory.MOD_ID)
+@Mod.EventBusSubscriber(modid = HeartFactory.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModBrewingRecipes {
 
     @SubscribeEvent
-    public static void onRegisterBrewingRecipes(RegisterBrewingRecipesEvent event) {
-        var builder = event.getBuilder();
-
-        // 1. Baza: Awkward + Heart -> Health Boost
-        // To pozwala zrobić potkę w Brewing Standzie
-        builder.addMix(
-                Potions.AWKWARD,
-                ModItems.HEART.get(),
-                ModPotions.HEALTH_BOOST
-        );
-
-        // 2. Ulepszenia (Redstone / Glowstone)
-        // Dzięki temu Create w Basinie będzie wiedział, co robić!
-        builder.addMix(ModPotions.HEALTH_BOOST, Items.REDSTONE, ModPotions.LONG_HEALTH_BOOST);
-        builder.addMix(ModPotions.HEALTH_BOOST, Items.GLOWSTONE_DUST, ModPotions.STRONG_HEALTH_BOOST);
+    public static void onCommonSetup(FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            BrewingRecipeRegistry.addRecipe(
+                    Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.AWKWARD)),
+                    Ingredient.of(ModItems.HEART.get()),
+                    PotionUtils.setPotion(new ItemStack(Items.POTION), ModPotions.HEALTH_BOOST.get())
+            );
+            BrewingRecipeRegistry.addRecipe(
+                    Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), ModPotions.HEALTH_BOOST.get())),
+                    Ingredient.of(Items.REDSTONE),
+                    PotionUtils.setPotion(new ItemStack(Items.POTION), ModPotions.LONG_HEALTH_BOOST.get())
+            );
+            BrewingRecipeRegistry.addRecipe(
+                    Ingredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), ModPotions.HEALTH_BOOST.get())),
+                    Ingredient.of(Items.GLOWSTONE_DUST),
+                    PotionUtils.setPotion(new ItemStack(Items.POTION), ModPotions.STRONG_HEALTH_BOOST.get())
+            );
+        });
     }
 }

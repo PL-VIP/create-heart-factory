@@ -2,12 +2,12 @@ package com.pl_vip.heartfactory;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.neoforge.event.entity.living.LivingEntityUseItemEvent;
-import net.neoforged.neoforge.event.tick.PlayerTickEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
+import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
-@EventBusSubscriber(modid = HeartFactory.MOD_ID)
+@Mod.EventBusSubscriber(modid = HeartFactory.MOD_ID)
 public class HeartSourceHandler {
 
     @SubscribeEvent
@@ -15,22 +15,26 @@ public class HeartSourceHandler {
         if (event.getEntity().level().isClientSide) return;
         if (!(event.getEntity() instanceof Player player)) return;
 
+        IHeartPlayerData data = ModCapabilities.get(player);
+
         if (event.getItem().is(Items.ENCHANTED_GOLDEN_APPLE)) {
-            player.setData(ModAttachments.HEART_SOURCE, 2); // Kox
+            data.setHeartSource(2);
         } else if (event.getItem().is(Items.GOLDEN_APPLE)) {
-            player.setData(ModAttachments.HEART_SOURCE, 1); // Zwykłe
+            data.setHeartSource(1);
         }
     }
 
     @SubscribeEvent
-    public static void onPlayerTick(PlayerTickEvent.Post event) {
-        Player player = event.getEntity();
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
+        if (event.phase != TickEvent.Phase.END) return;
+
+        Player player = event.player;
         if (player.level().isClientSide) return;
 
-        // Jeśli absorpcja spadła do 0, resetujemy źródło
         if (player.getAbsorptionAmount() <= 0.0f) {
-            if (player.getData(ModAttachments.HEART_SOURCE) != 0) {
-                player.setData(ModAttachments.HEART_SOURCE, 0);
+            IHeartPlayerData data = ModCapabilities.get(player);
+            if (data.getHeartSource() != 0) {
+                data.setHeartSource(0);
             }
         }
     }

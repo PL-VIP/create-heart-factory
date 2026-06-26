@@ -1,8 +1,8 @@
 package com.pl_vip.heartfactory.items;
 
 import com.pl_vip.heartfactory.HealthHandler;
-import com.pl_vip.heartfactory.ModAttachments;
-import com.simibubi.create.content.kinetics.deployer.DeployerFakePlayer; // WAŻNY IMPORT
+import com.pl_vip.heartfactory.ModCapabilities;
+import com.simibubi.create.content.kinetics.deployer.DeployerFakePlayer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
@@ -14,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -30,20 +31,18 @@ public class PermanentHeartItem extends Item {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
 
-        // --- BLOKADA DEPLOYERA ---
-        // Jeśli ten "gracz" to Deployer, nie pozwalaj mu zjeść serca.
         if (player instanceof DeployerFakePlayer) {
             return InteractionResultHolder.pass(stack);
         }
-        // -------------------------
 
         if (!level.isClientSide) {
-            int currentNormal = player.getData(ModAttachments.HEART_CONTAINERS);
-            int currentAnarchic = player.getData(ModAttachments.ANARCHIC_HEARTS);
+            var data = ModCapabilities.get(player);
+            int currentNormal = data.getHeartContainers();
+            int currentAnarchic = data.getAnarchicHearts();
 
             if (!isAnarchic) {
                 if (currentNormal < MAX_PER_TYPE) {
-                    player.setData(ModAttachments.HEART_CONTAINERS, currentNormal + 1);
+                    data.setHeartContainers(currentNormal + 1);
                     HealthHandler.updateMaxHealth(player);
                     stack.shrink(1);
                     level.playSound(null, player.blockPosition(), SoundEvents.PLAYER_LEVELUP, SoundSource.PLAYERS, 1.0f, 1.0f);
@@ -53,7 +52,7 @@ public class PermanentHeartItem extends Item {
                 }
             } else {
                 if (currentAnarchic < MAX_PER_TYPE) {
-                    player.setData(ModAttachments.ANARCHIC_HEARTS, currentAnarchic + 1);
+                    data.setAnarchicHearts(currentAnarchic + 1);
                     HealthHandler.updateMaxHealth(player);
                     stack.shrink(1);
                     level.playSound(null, player.blockPosition(), SoundEvents.WITHER_SPAWN, SoundSource.PLAYERS, 0.5f, 2.0f);
@@ -67,12 +66,12 @@ public class PermanentHeartItem extends Item {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag flag) {
+    public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltip, TooltipFlag flag) {
         if (!isAnarchic) {
             tooltip.add(Component.translatable("tooltip.heartfactory.heart_desc").withStyle(ChatFormatting.GRAY));
         } else {
             tooltip.add(Component.translatable("tooltip.heartfactory.netherite_desc").withStyle(ChatFormatting.DARK_PURPLE));
         }
-        super.appendHoverText(stack, context, tooltip, flag);
+        super.appendHoverText(stack, level, tooltip, flag);
     }
 }

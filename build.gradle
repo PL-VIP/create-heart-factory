@@ -3,60 +3,24 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.neoforged.moddev' version '1.0.17'
+    id 'net.neoforged.moddev.legacyforge' version '2.0.107'
 }
 
-tasks.named('wrapper', Wrapper).configure {
-    // Wersja 8.8 - standard dla 1.21.1
-    gradleVersion = '8.8'
-}
-
-version = project.mod_version
-group = project.mod_group_id
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-    // Repozytorium Create (dla bibliotek pomocniczych)
-    maven {
-        name = 'Create Mod Maven'
-        url = 'https://maven.createmod.net'
-    }
-    // Repozytorium Modrinth (dla pliku moda Create)
-    maven {
-        name = "Modrinth"
-        url = "https://api.modrinth.com/maven"
-    }
-}
+version = mod_version
+group = mod_group_id
 
 base {
-    archivesName = project.mod_id
+    archivesName = mod_id
 }
 
-java {
-    toolchain.languageVersion = JavaLanguageVersion.of(21)
-}
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
-neoForge {
-    version = project.neo_version
+legacyForge {
+    version = "${minecraft_version}-${forge_version}"
 
-    runs {
-        client {
-            client()
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        server {
-            server()
-            programArgument '--nogui'
-            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
-        }
-
-        data {
-            data()
-            // Fix dla błędu "collect" w Gradle 8.8 (argumenty bez nawiasów kwadratowych)
-            programArguments.addAll '--mod', project.mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
-        }
+    parchment {
+        minecraftVersion = minecraft_version
+        mappingsVersion = parchment_version
     }
 
     mods {
@@ -64,46 +28,61 @@ neoForge {
             sourceSet(sourceSets.main)
         }
     }
+
+    runs {
+        client {
+            client()
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+        }
+
+        data {
+            data()
+            programArguments.addAll '--mod', mod_id, '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
+    }
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven { url = 'https://maven.createmod.net' }
+    maven { url = 'https://maven.tterrag.com' }
+    maven { url = 'https://raw.githubusercontent.com/Fuzss/modresources/main/maven/' }
 }
 
 dependencies {
-    // Tylko Create. Wywaliliśmy JEI.
-    implementation "maven.modrinth:create:mc1.21.1-6.0.9"
+    modImplementation("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false }
+    modImplementation("net.createmod.ponder:Ponder-Forge-${minecraft_version}:${ponder_version}")
+    modCompileOnly("dev.engine-room.flywheel:flywheel-forge-api-${minecraft_version}:${flywheel_version}")
+    modRuntimeOnly("dev.engine-room.flywheel:flywheel-forge-${minecraft_version}:${flywheel_version}")
+    modImplementation("com.tterrag.registrate:Registrate:${registrate_version}")
+    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
+    implementation("io.github.llamalad7:mixinextras-forge:0.4.1")
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 tasks.withType(ProcessResources).configureEach {
     var replaceProperties = [
-            minecraft_version   : project.minecraft_version,
-            minecraft_version_range: project.minecraft_version,
-            neo_version         : project.neo_version,
-            neo_version_range   : project.neo_version,
-            loader_version_range: "[4,)",
-            mod_id              : project.mod_id,
-            mod_name            : "Heart Factory",
-            mod_license         : "MPL 2.0",
-            mod_version         : project.mod_version,
-            mod_authors         : "PL_VIP",
-            mod_description     : "Create Addon"
+            minecraft_version      : minecraft_version,
+            minecraft_version_range: minecraft_version_range,
+            forge_version          : forge_version,
+            forge_version_range    : forge_version_range,
+            loader_version_range   : loader_version_range,
+            mod_id                 : mod_id,
+            mod_name               : mod_name,
+            mod_version            : mod_version,
+            mod_authors            : 'PL_VIP',
+            mod_license            : 'MPL-2.0',
+            mod_description        : 'Create addon - industrialize your vitality'
     ]
     inputs.properties replaceProperties
 
-    filesMatching('META-INF/neoforge.mods.toml') {
+    filesMatching('META-INF/mods.toml') {
         expand replaceProperties
     }
-}
-
-publishing {
-    publications {
-        register('mavenJava', MavenPublication) {
-            from components.java
-        }
-    }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/repo"
-        }
-    }
-
 }
